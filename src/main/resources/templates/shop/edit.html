@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>编辑商品</title>
+</head>
+<body>
+<h1>编辑商品</h1>
+<form action="/shop/edit" method="post">
+  <input type="hidden" name="id" th:value="${shop.id}">
+  碳水化合物: <input type="text" name="water" th:value="${shop.water}"><br>
+  钠: <input type="text" name="na" th:value="${shop.na}"><br>
+  <input type="submit" value="保存">
+</form>
+</body>
+</html>

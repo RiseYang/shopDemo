@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yang.shopdemo.mapper.ShopMapper">
+    <select id="findAll" resultType="cn.yang.shopdemo.entity.Shop">
+        SELECT * FROM shop
+    </select>
+
+    <select id="findById" resultType="cn.yang.shopdemo.entity.Shop">
+        SELECT * FROM shop WHERE id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="cn.yang.shopdemo.entity.Shop">
+        INSERT INTO shop(water, na) VALUES(#{water}, #{na})
+    </insert>
+
+    <update id="update" parameterType="cn.yang.shopdemo.entity.Shop">
+        UPDATE shop SET water = #{water}, na = #{na} WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM shop WHERE id = #{id}
+    </delete>
+</mapper>

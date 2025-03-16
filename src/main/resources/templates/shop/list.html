@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+</head>
+<body>
+<h1>商品列表</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>碳水化合物</th>
+        <th>钠</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="shop : ${shops}">
+        <td th:text="${shop.id}"></td>
+        <td th:text="${shop.water}"></td>
+        <td th:text="${shop.na}"></td>
+        <td>
+            <a th:href="@{/shop/edit/{id}(id=${shop.id})}">编辑</a> |
+            <a th:href="@{/shop/delete/{id}(id=${shop.id})}">删除</a>
+        </td>
+    </tr>
+</table>
+<a href="/shop/add">添加商品</a>
+</body>
+</html>
