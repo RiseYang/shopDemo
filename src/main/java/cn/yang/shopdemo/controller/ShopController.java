@@ -16,6 +16,11 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
+    /**
+     * 查看列表
+     * @param model
+     * @return
+     */
     @GetMapping
     public String list(Model model) {
         List<Shop> shops = shopService.findAll();
