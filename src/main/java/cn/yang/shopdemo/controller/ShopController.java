@@ -28,6 +28,11 @@ public class ShopController {
         return "shop/list"; // 返回视图名称 "shop/list"
     }
 
+    /**
+     * 增加
+     * @return
+     */
+
     @GetMapping("/add")
     public String addForm() {
         return "shop/add"; // 返回视图名称 "shop/add"
@@ -39,6 +44,12 @@ public class ShopController {
         return "redirect:/shop"; // 重定向到列表页面
     }
 
+    /**
+     * 修改
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/edit/{id}")
     public String editForm(@PathVariable Integer id, Model model) {
         Shop shop = shopService.findById(id);
@@ -52,6 +63,11 @@ public class ShopController {
         return "redirect:/shop"; // 重定向到列表页面
     }
 
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
         shopService.delete(id);
