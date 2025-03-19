@@ -38,6 +38,24 @@
             <artifactId>thymeleaf-extras-java8time</artifactId>
         </dependency>
 
+        <!-- Excel dependencies -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool</artifactId>
+            <version>2.16.2</version>
+        </dependency>
+
         <!-- MyBatis整合SpringBoot -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

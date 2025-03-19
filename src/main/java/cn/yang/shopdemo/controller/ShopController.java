@@ -2,11 +2,21 @@ package cn.yang.shopdemo.controller;
 
 import cn.yang.shopdemo.entity.Shop;
 import cn.yang.shopdemo.service.ShopService;
+import com.xiaoleilu.hutool.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
 
 @Controller // 使用 @Controller 而不是 @RestController
@@ -73,4 +83,27 @@ public class ShopController {
         shopService.delete(id);
         return "redirect:/shop"; // 重定向到列表页面
     }
+
+    /**
+     * 上传
+     * @param file
+     * @return
+     */
+    @PostMapping("/upload")
+    public String upload(@RequestParam("file") MultipartFile file) {
+        shopService.save(file);
+        return "redirect:/shop";
+    }
+
+    /**
+     * 下载
+     * @param response
+     */
+    @GetMapping("/download")
+    public void downloadExcel(HttpServletResponse response) {
+        shopService.downloadExcel(response);
+//        return "redirect:/shop";
+    }
+
+
 }

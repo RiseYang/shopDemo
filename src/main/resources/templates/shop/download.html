@@ -1,56 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>商品列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-<h1>商品列表</h1>
-<table border="1">
-    <form method="post" enctype="multipart/form-data" action="/shop/upload">
-        <input type="file" name="file">
-        <button type="submit">上传文件</button>
-    </form>
-
-    <tr>
-        <th>ID</th>
-        <th>碳水化合物</th>
-        <th>钠</th>
-        <th>操作</th>
-    </tr>
-    <tr th:each="shop : ${shops}">
-        <td th:text="${shop.id}"></td>
-        <td th:text="${shop.water}"></td>
-        <td th:text="${shop.na}"></td>
-        <td>
-            <a th:href="@{/shop/edit/{id}(id=${shop.id})}">编辑</a> |
-            <a th:href="@{/shop/delete/{id}(id=${shop.id})}">删除</a>
-        </td>
-    </tr>
-</table>
-<a href="/shop/add">添加商品</a>
-
-<form method="get" enctype="multipart/form-data" action="/shop/download">
-    <!-- 文件下载链接 -->
-    <input id="url" value="http://localhost:8081/shop/download"/>
-    <button id="shops">点击下载</button>
-</form>
-
-<script>
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
-
-    fetch('/your-api-endpoint', {
-        method: 'POST',
-        body: formData
-    }).then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-</script>
-
+<input id="url" value="http://localhost:8081/shop/download"/>
+<button id="shops">点击</button>
+</body>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.2/axios.js"></script>
 <script>
-    document.getElementById('shops').onclick = function() {
+    document.getElementById('test').onclick = function() {
         let apiurl = document.getElementById('url').value;
         let params = {
             "id": "1846783495678988290",
@@ -82,5 +43,4 @@
 
     }
 </script>
-</body>
 </html>
